@@ -3741,19 +3741,77 @@ vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
 
   // editor/editorScene.js
   function editorScene() {
+    var ASB = document.getElementById("add-square-btn");
+    ASB.onclick = () => {
+      add([
+        pos(center()),
+        anchor("center"),
+        rect(16, 16),
+        color(255, 255, 255),
+        area(),
+        rotate(),
+        scale()
+      ]);
+    };
+    var editMode = "translate";
+    var selectedObject = null;
+    onKeyPress("1", () => {
+      editMode = "translate";
+    });
+    onKeyPress("2", () => {
+      editMode = "rotate";
+    });
+    onKeyPress("3", () => {
+      editMode = "scale";
+    });
+    onClick("area", (obj) => {
+      selectedObject = obj;
+      displayObjectDetails(obj);
+    });
     plug(GridClass);
+    debug.inspect = true;
     onDraw(() => {
       if (!debug.inspect)
         return;
     });
   }
   __name(editorScene, "editorScene");
+  function displayObjectDetails(obj) {
+    for (const comp in obj.inspect()) {
+      var objComp = obj.c(comp);
+      console.log(comp);
+      console.log(objComp);
+      for (const compVar in objComp) {
+        if (typeof objComp[compVar] == "function" || compVar == "cleanups") {
+          continue;
+        }
+        console.log("	- " + compVar + " -> " + objComp[compVar]);
+        switch (typeof objComp[compVar]) {
+          case "boolean":
+            break;
+          case "number":
+            break;
+          case "bigint":
+            break;
+          case "string":
+            break;
+          case "symbol":
+            break;
+          default:
+          case "object":
+            break;
+        }
+      }
+      console.log("---------------");
+    }
+  }
+  __name(displayObjectDetails, "displayObjectDetails");
 
   // code/main.js
   Oo({
     width: 1280,
     height: 720,
-    background: [238, 238, 238]
+    background: [128, 128, 128]
   });
   loadSprite("bean", "sprites/bean.png");
   scene("editor", editorScene);

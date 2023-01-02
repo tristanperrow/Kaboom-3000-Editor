@@ -5,7 +5,7 @@ import editorScene from "../editor/editorScene"
 kaboom({
 	width: 1280,
 	height: 720,
-	background: [238, 238, 238],
+	background: [128, 128, 128],
 })
 
 // load assets
