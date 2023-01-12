@@ -1,6 +1,14 @@
 import GridClass from "./plugins/grid"
 
-export default function editorScene() {
+var k;
+
+export default function editorScene(kab) {
+
+	// canvas
+
+	k = kab;
+
+	const canvas = document.getElementById("kCan")
 
 	// UI around editor
 
@@ -10,7 +18,7 @@ export default function editorScene() {
 			pos(center()),
 			anchor("center"),
 			rect(16, 16),
-			color(255,255,255),
+			color(255, 255, 255),
 			area(),
 			rotate(),
 			scale(),
@@ -34,27 +42,65 @@ export default function editorScene() {
 		editMode = "scale"
 	})
 
-	onClick("area", (obj) => {
-		selectedObject = obj;
-		
-		displayObjectDetails(obj)
+	onMousePress(() => {
+		var u = false
+		for (const o of get("area").reverse()) {
+			if (o.isHovering()) {
+				console.log(o)
+				if (o.is("adjustment_arrow")) {
+					// TODO needs to control via onMouseDown
+					console.log("arrow clicked!")
+					break;
+				}
+				u = true
+				selectedObject = o
+				displayObjectDetails(o)
+				showAdjustmentArrows(o)
+				break
+			}
+		}
+		if (!u)
+			selectedObject = null
+	})
 
-		// display  
+	// TODO for adjusting game objects
+	onMouseDown(() => {
+		
 	})
 
 	// plug in editor tools
 	plug(GridClass);
-		
+
 	// debug inspector
 	debug.inspect = true
-	
+
 	onDraw(() => {
 		if (!debug.inspect)
 			return
+		console.log(k.width() + ", " + k.height() + " -> " + center())
 	})
-	
+
 }
 
+// object functions
+
+// add functionality for adjusting game objects
+function showAdjustmentArrows(obj) {
+	if (obj.children.length > 0)
+		return;
+	// x
+	obj.add([
+		pos(),
+		anchor("right"),
+		rect(16, 6),
+		area(),
+		color(RED),
+		opacity(0.25),
+		"adjustment_arrow",
+	])
+}
+
+// TODO Used to inspect elements in the game
 function displayObjectDetails(obj) {
 	for (const comp in obj.inspect()) {
 		var objComp = obj.c(comp)
@@ -67,27 +113,37 @@ function displayObjectDetails(obj) {
 			console.log("\t- " + compVar + " -> " + objComp[compVar])
 			switch (typeof objComp[compVar]) {
 				case "boolean":
-					// display boolean thing
-					break;
+					// TODO display boolean thing
+					break
 				case "number":
-					// display number thing
-					break;
+					// TODO display number thing
+					break
 				case "bigint":
-					// display bigint thing
-					break;
+					// TODO display bigint thing
+					break
 				case "string":
-					// display string thing
-					break;
+					// TODO display string thing
+					break
 				case "symbol":
-					// display symbol thing
-					break;
+					// TODO display symbol thing
+					break
 				default:
 				case "object":
-					// serialize object (if possible)
-					
-					break;
+					// TODO serialize object (if possible)
+
+					break
 			}
 		}
 		console.log("---------------")
 	}
+}
+
+// screen functions
+
+// this does not work currently in Kaboom
+function setGameResolution(width, height) {
+	kCan.width = width
+	kCan.height = height
+	kCan.style.width = width + "px"
+	kCan.style.height = height + "px"
 }

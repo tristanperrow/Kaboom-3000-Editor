@@ -2,10 +2,11 @@ import kaboom from "kaboom"
 import editorScene from "../editor/editorScene"
 
 // initialize context
-kaboom({
-	width: 1280,
-	height: 720,
-	background: [128, 128, 128],
+const k = kaboom({
+	width: 640,
+	height: 480,
+	background: [119, 67, 96],
+	canvas: document.getElementById("kCan"),
 })
 
 // load assets
@@ -15,4 +16,4 @@ loadSprite("bean", "sprites/bean.png")
 scene("editor", editorScene)
 
 // go
-go("editor")
+go("editor", k)

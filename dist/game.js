@@ -1624,14 +1624,14 @@ vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
     }
     __name(Br, "Br");
     l(Br, "pushMatrix");
-    function k(...e) {
+    function k3(...e) {
       if (e[0] === void 0)
         return;
       let t = b(...e);
       t.x === 0 && t.y === 0 || g.transform.translate(t);
     }
-    __name(k, "k");
-    l(k, "pushTranslate");
+    __name(k3, "k");
+    l(k3, "pushTranslate");
     function Te(...e) {
       if (e[0] === void 0)
         return;
@@ -1662,7 +1662,7 @@ vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
       if (e.width <= 0 || e.height <= 0)
         return;
       let t = e.width, n = e.height, h = ke(e.anchor || bt).scale(new w(t, n).scale(-0.5)), s = e.quad || new G(0, 0, 1, 1), c = e.color || S(255, 255, 255), f = (_a = e.opacity) != null ? _a : 1, m = e.tex ? fr / e.tex.width : 0, p = e.tex ? fr / e.tex.height : 0, y = s.x + m, U = s.y + p, M = s.w - m * 2, P = s.h - p * 2;
-      ee(), k(e.pos), Ae(e.angle), Te(e.scale), k(h), xt([{ pos: new w(-t / 2, n / 2), uv: new w(e.flipX ? y + M : y, e.flipY ? U : U + P), color: c, opacity: f }, { pos: new w(-t / 2, -n / 2), uv: new w(e.flipX ? y + M : y, e.flipY ? U + P : U), color: c, opacity: f }, { pos: new w(t / 2, -n / 2), uv: new w(e.flipX ? y : y + M, e.flipY ? U + P : U), color: c, opacity: f }, { pos: new w(t / 2, n / 2), uv: new w(e.flipX ? y : y + M, e.flipY ? U : U + P), color: c, opacity: f }], [0, 1, 3, 1, 2, 3], e.fixed, e.tex, e.shader, e.uniform), K();
+      ee(), k3(e.pos), Ae(e.angle), Te(e.scale), k3(h), xt([{ pos: new w(-t / 2, n / 2), uv: new w(e.flipX ? y + M : y, e.flipY ? U : U + P), color: c, opacity: f }, { pos: new w(-t / 2, -n / 2), uv: new w(e.flipX ? y + M : y, e.flipY ? U + P : U), color: c, opacity: f }, { pos: new w(t / 2, -n / 2), uv: new w(e.flipX ? y : y + M, e.flipY ? U + P : U), color: c, opacity: f }, { pos: new w(t / 2, n / 2), uv: new w(e.flipX ? y : y + M, e.flipY ? U : U + P), color: c, opacity: f }], [0, 1, 3, 1, 2, 3], e.fixed, e.tex, e.shader, e.uniform), K();
     }
     __name(Oe, "Oe");
     l(Oe, "drawUVQuad");
@@ -1789,7 +1789,7 @@ vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
         throw new Error('drawPolygon() requires property "pts".');
       let t = e.pts.length;
       if (!(t < 3)) {
-        if (ee(), k(e.pos), Te(e.scale), Ae(e.angle), k(e.offset), e.fill !== false) {
+        if (ee(), k3(e.pos), Te(e.scale), Ae(e.angle), k3(e.offset), e.fill !== false) {
           let n = (_a = e.color) != null ? _a : C.WHITE, u = e.pts.map((s, c) => {
             var _a2, _b2;
             return { pos: new w(s.x, s.y), uv: new w(0, 0), color: e.colors ? (_a2 = e.colors[c]) != null ? _a2 : n : n, opacity: (_b2 = e.opacity) != null ? _b2 : 1 };
@@ -1914,7 +1914,7 @@ vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
     l(nt, "drawText");
     function ve(e) {
       var _a;
-      ee(), k(e.opt.pos), Ae(e.opt.angle), k(ke((_a = e.opt.anchor) != null ? _a : "topleft").add(1, 1).scale(e.width, e.height).scale(-0.5)), e.chars.forEach((t) => {
+      ee(), k3(e.opt.pos), Ae(e.opt.angle), k3(ke((_a = e.opt.anchor) != null ? _a : "topleft").add(1, 1).scale(e.width, e.height).scale(-0.5)), e.chars.forEach((t) => {
         Oe({ tex: t.tex, width: t.width, height: t.height, pos: t.pos, scale: t.scale, angle: t.angle, color: t.color, opacity: t.opacity, quad: t.quad, anchor: "center", uniform: e.opt.uniform, shader: e.opt.shader, fixed: e.opt.fixed });
       }), K();
     }
@@ -2241,9 +2241,9 @@ vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
       }, update() {
         this.paused || (this.get().forEach((s) => s.update()), this.trigger("update"));
       }, draw() {
-        this.hidden || (ee(), k(this.pos), Te(this.scale), Ae(this.angle), this.trigger("draw"), this.get().forEach((s) => s.draw()), K());
+        this.hidden || (ee(), k3(this.pos), Te(this.scale), Ae(this.angle), this.trigger("draw"), this.get().forEach((s) => s.draw()), K());
       }, drawInspect() {
-        this.hidden || (ee(), k(this.pos), Te(this.scale), Ae(this.angle), this.get().forEach((s) => s.drawInspect()), this.trigger("drawInspect"), K());
+        this.hidden || (ee(), k3(this.pos), Te(this.scale), Ae(this.angle), this.get().forEach((s) => s.drawInspect()), this.trigger("drawInspect"), K());
       }, use(s) {
         if (!s)
           return;
@@ -2741,7 +2741,7 @@ vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
         u.clear();
       }, drawInspect() {
         let h = this.localArea();
-        ee(), Te(this.area.scale), k(this.area.offset);
+        ee(), Te(this.area.scale), k3(this.area.offset);
         let s = { outline: { width: 4 / ln(), color: S(0, 0, 255) }, anchor: this.anchor, fill: false, fixed: this.fixed };
         h instanceof V ? W(__spreadProps(__spreadValues({}, s), { pos: h.pos, width: h.width, height: h.height })) : h instanceof se ? we(__spreadProps(__spreadValues({}, s), { pts: h.pts })) : h instanceof de && ge(__spreadProps(__spreadValues({}, s), { pos: h.center, radius: h.radius })), K();
       }, destroy() {
@@ -3449,9 +3449,9 @@ vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
     function Dn(e, t) {
       ae(() => {
         let n = b(8);
-        ee(), k(e);
+        ee(), k3(e);
         let u = be({ text: t, font: vt, size: 16, pos: n, color: S(255, 255, 255), fixed: true }), h = u.width + n.x * 2, s = u.height + n.x * 2;
-        e.x + h >= N() && k(b(-h, 0)), e.y + s >= j() && k(b(0, -s)), W({ width: h, height: s, color: S(0, 0, 0), radius: 4, opacity: 0.8, fixed: true }), ve(u), K();
+        e.x + h >= N() && k3(b(-h, 0)), e.y + s >= j() && k3(b(0, -s)), W({ width: h, height: s, color: S(0, 0, 0), radius: 4, opacity: 0.8, fixed: true }), ve(u), K();
       });
     }
     __name(Dn, "Dn");
@@ -3474,14 +3474,14 @@ vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
         Dn(b(8), `FPS: ${L.fps()}`);
       }
       L.paused && ae(() => {
-        ee(), k(N(), 0), k(-8, 8);
+        ee(), k3(N(), 0), k3(-8, 8);
         let e = 32;
         W({ width: e, height: e, anchor: "topright", color: S(0, 0, 0), opacity: 0.8, radius: 4, fixed: true });
         for (let t = 1; t <= 2; t++)
           W({ width: 4, height: e * 0.6, anchor: "center", pos: b(-e / 3 * t, e * 0.5), color: S(255, 255, 255), radius: 2, fixed: true });
         K();
       }), L.timeScale !== 1 && ae(() => {
-        ee(), k(N(), j()), k(-8, -8);
+        ee(), k3(N(), j()), k3(-8, -8);
         let e = 8, t = be({ text: L.timeScale.toFixed(1), font: vt, size: 16, color: S(255, 255, 255), pos: b(-e), anchor: "botright", fixed: true });
         W({ width: t.width + e * 2 + e * 4, height: t.height + e * 2, anchor: "botright", color: S(0, 0, 0), opacity: 0.8, radius: 4, fixed: true });
         for (let n = 0; n < 2; n++) {
@@ -3490,9 +3490,9 @@ vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
         }
         ve(t), K();
       }), L.curRecording && ae(() => {
-        ee(), k(0, j()), k(24, -24), ge({ radius: 12, color: S(255, 0, 0), opacity: kt(0, 1, Ot() * 4), fixed: true }), K();
+        ee(), k3(0, j()), k3(24, -24), ge({ radius: 12, color: S(255, 0, 0), opacity: kt(0, 1, Ot() * 4), fixed: true }), K();
       }), L.showLog && d.logs.length > 0 && ae(() => {
-        ee(), k(0, j()), k(8, -8);
+        ee(), k3(0, j()), k3(8, -8);
         let e = 8, t = be({ text: d.logs.join(`
 `), font: vt, pos: b(e, -e), anchor: "botleft", size: 16, width: N() * 0.6, lineSpacing: e / 2, fixed: true, styles: { time: { color: S(127, 127, 127) }, info: { color: S(255, 255, 255) }, error: { color: S(255, 0, 127) } } });
         W({ width: t.width + e * 2, height: t.height + e * 2, anchor: "botleft", color: S(0, 0, 0), radius: 4, opacity: 0.8, fixed: true }), ve(t), K();
@@ -3611,7 +3611,7 @@ vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
     Mn(() => {
       x.loaded || oe() === 1 && !dt && (x.loaded = true, d.ev.trigger("load")), !x.loaded && i.loadingScreen !== false || dt ? ws() : (fs(), L.paused || Pn(), ps(), gs(), i.debug !== false && bs(), i.virtualControls && gn() && vs()), dt && (dt = false);
     });
-    let Me = { VERSION: js, loadRoot: et, loadProgress: oe, loadSprite: Ce, loadSpriteAtlas: Jt, loadSound: xr, loadBitmapFont: br, loadFont: Ne, loadShader: Ur, loadShaderURL: Er, loadAseprite: yr, loadPedit: vr, loadBean: Sr, load: z, getSprite: Zt, getSound: en, getFont: Cr, getBitmapFont: tn, getShader: nn, Asset: R, SpriteData: O, SoundData: F, width: N, height: j, center: ht, dt: te, time: Ot, screenshot: Jr, record: ss, isFocused: os, setCursor: pn, setFullscreen: Qr, isFullscreen: Rt, isTouchScreen: gn, onLoad: Bt, onLoadUpdate: ys, onResize: Us, onError: Es, camPos: Zr, camScale: ei, camRot: ti, shake: ni, toScreen: Pt, toWorld: wn, gravity: Oi, add: We, destroy: as, destroyAll: cs, get: An, getAll: On, readd: us, pos: ut, scale: ct, rotate: Ri, color: Pi, opacity: Di, anchor: Mt, area: Gi, sprite: Ft, text: Vi, rect: ji, circle: _i, uvquad: ki, outline: Ni, body: $i, doubleJump: zi, shader: Yi, timer: xn, fixed: Xi, stay: Sn, health: Ki, lifespan: Wi, z: Mi, move: Bi, offscreen: Ii, follow: Fi, state: Ji, fadeIn: Qi, obstacle: rs, on: De, onUpdate: Dt, onDraw: ri, onAdd: vn, onDestroy: ii, onCollide: si, onClick: oi, onHover: ai, onHoverUpdate: ui, onHoverEnd: ci, onKeyDown: li, onKeyPress: me, onKeyPressRepeat: di, onKeyRelease: fi, onMouseDown: mi, onMousePress: yn, onMouseRelease: pi, onMouseMove: gi, onCharInput: wi, onTouchStart: bi, onTouchMove: vi, onTouchEnd: yi, onScroll: Ui, onVirtualButtonPress: xi, onVirtualButtonDown: Ei, onVirtualButtonRelease: Si, onGamepadButtonDown: Ci, onGamepadButtonPress: Ti, onGamepadButtonRelease: Ai, mousePos: Pe, mouseDeltaPos: mn, isKeyDown: $r, isKeyPressed: Hr, isKeyPressedRepeat: qr, isKeyReleased: zr, isMouseDown: _r, isMousePressed: rt, isMouseReleased: At, isMouseMoved: Nr, isVirtualButtonPressed: Yr, isVirtualButtonDown: Xr, isVirtualButtonReleased: Kr, charInputted: Wr, loop: hi, wait: ot, play: He, volume: Or, burp: on, audioCtx: T.ctx, Timer: pe, Line: ne, Rect: V, Circle: de, Polygon: se, Vec2: w, Color: C, Mat4: I, Quad: G, RNG: Ie, rand: Qe, randi: _t, randSeed: Vn, vec2: b, rgb: S, hsl2rgb: In, quad: Gn, choose: kn, chance: jn, lerp: Ge, tween: It, easings: Ze, map: mt, mapc: Ln, wave: kt, deg2rad: ce, rad2deg: ft, testLineLine: Le, testRectRect: _n, testRectLine: Nn, testRectPoint: Ve, drawSprite: Lr, drawText: nt, formatText: be, drawRect: W, drawLine: $e, drawLines: an, drawTriangle: un, drawCircle: ge, drawEllipse: cn, drawUVQuad: Oe, drawPolygon: we, drawFormattedText: ve, drawMasked: Ir, drawSubtracted: Gr, pushTransform: ee, popTransform: K, pushTranslate: k, pushScale: Te, pushRotate: Ae, pushMatrix: Br, usePostEffect: Dr, debug: L, scene: Zi, go: es, addLevel: is, getData: ts, setData: Cn, download: wt, downloadJSON: Wn, downloadText: Ht, downloadBlob: qt, plug: Tn, ASCII_CHARS: rr, canvas: a.canvas, addKaboom: ds, LEFT: w.LEFT, RIGHT: w.RIGHT, UP: w.UP, DOWN: w.DOWN, RED: C.RED, GREEN: C.GREEN, BLUE: C.BLUE, YELLOW: C.YELLOW, MAGENTA: C.MAGENTA, CYAN: C.CYAN, WHITE: C.WHITE, BLACK: C.BLACK, quit: Ss, Event: Z, EventHandler: he };
+    let Me = { VERSION: js, loadRoot: et, loadProgress: oe, loadSprite: Ce, loadSpriteAtlas: Jt, loadSound: xr, loadBitmapFont: br, loadFont: Ne, loadShader: Ur, loadShaderURL: Er, loadAseprite: yr, loadPedit: vr, loadBean: Sr, load: z, getSprite: Zt, getSound: en, getFont: Cr, getBitmapFont: tn, getShader: nn, Asset: R, SpriteData: O, SoundData: F, width: N, height: j, center: ht, dt: te, time: Ot, screenshot: Jr, record: ss, isFocused: os, setCursor: pn, setFullscreen: Qr, isFullscreen: Rt, isTouchScreen: gn, onLoad: Bt, onLoadUpdate: ys, onResize: Us, onError: Es, camPos: Zr, camScale: ei, camRot: ti, shake: ni, toScreen: Pt, toWorld: wn, gravity: Oi, add: We, destroy: as, destroyAll: cs, get: An, getAll: On, readd: us, pos: ut, scale: ct, rotate: Ri, color: Pi, opacity: Di, anchor: Mt, area: Gi, sprite: Ft, text: Vi, rect: ji, circle: _i, uvquad: ki, outline: Ni, body: $i, doubleJump: zi, shader: Yi, timer: xn, fixed: Xi, stay: Sn, health: Ki, lifespan: Wi, z: Mi, move: Bi, offscreen: Ii, follow: Fi, state: Ji, fadeIn: Qi, obstacle: rs, on: De, onUpdate: Dt, onDraw: ri, onAdd: vn, onDestroy: ii, onCollide: si, onClick: oi, onHover: ai, onHoverUpdate: ui, onHoverEnd: ci, onKeyDown: li, onKeyPress: me, onKeyPressRepeat: di, onKeyRelease: fi, onMouseDown: mi, onMousePress: yn, onMouseRelease: pi, onMouseMove: gi, onCharInput: wi, onTouchStart: bi, onTouchMove: vi, onTouchEnd: yi, onScroll: Ui, onVirtualButtonPress: xi, onVirtualButtonDown: Ei, onVirtualButtonRelease: Si, onGamepadButtonDown: Ci, onGamepadButtonPress: Ti, onGamepadButtonRelease: Ai, mousePos: Pe, mouseDeltaPos: mn, isKeyDown: $r, isKeyPressed: Hr, isKeyPressedRepeat: qr, isKeyReleased: zr, isMouseDown: _r, isMousePressed: rt, isMouseReleased: At, isMouseMoved: Nr, isVirtualButtonPressed: Yr, isVirtualButtonDown: Xr, isVirtualButtonReleased: Kr, charInputted: Wr, loop: hi, wait: ot, play: He, volume: Or, burp: on, audioCtx: T.ctx, Timer: pe, Line: ne, Rect: V, Circle: de, Polygon: se, Vec2: w, Color: C, Mat4: I, Quad: G, RNG: Ie, rand: Qe, randi: _t, randSeed: Vn, vec2: b, rgb: S, hsl2rgb: In, quad: Gn, choose: kn, chance: jn, lerp: Ge, tween: It, easings: Ze, map: mt, mapc: Ln, wave: kt, deg2rad: ce, rad2deg: ft, testLineLine: Le, testRectRect: _n, testRectLine: Nn, testRectPoint: Ve, drawSprite: Lr, drawText: nt, formatText: be, drawRect: W, drawLine: $e, drawLines: an, drawTriangle: un, drawCircle: ge, drawEllipse: cn, drawUVQuad: Oe, drawPolygon: we, drawFormattedText: ve, drawMasked: Ir, drawSubtracted: Gr, pushTransform: ee, popTransform: K, pushTranslate: k3, pushScale: Te, pushRotate: Ae, pushMatrix: Br, usePostEffect: Dr, debug: L, scene: Zi, go: es, addLevel: is, getData: ts, setData: Cn, download: wt, downloadJSON: Wn, downloadText: Ht, downloadBlob: qt, plug: Tn, ASCII_CHARS: rr, canvas: a.canvas, addKaboom: ds, LEFT: w.LEFT, RIGHT: w.RIGHT, UP: w.UP, DOWN: w.DOWN, RED: C.RED, GREEN: C.GREEN, BLUE: C.BLUE, YELLOW: C.YELLOW, MAGENTA: C.MAGENTA, CYAN: C.CYAN, WHITE: C.WHITE, BLACK: C.BLACK, quit: Ss, Event: Z, EventHandler: he };
     if (i.plugins && i.plugins.forEach(Tn), i.global !== false)
       for (let e in Me)
         window[e] = Me[e];
@@ -3740,7 +3740,10 @@ vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
   __name(Grid, "Grid");
 
   // editor/editorScene.js
-  function editorScene() {
+  var k;
+  function editorScene(kab) {
+    k = kab;
+    const canvas = document.getElementById("kCan");
     var ASB = document.getElementById("add-square-btn");
     ASB.onclick = () => {
       add([
@@ -3764,18 +3767,50 @@ vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
     onKeyPress("3", () => {
       editMode = "scale";
     });
-    onClick("area", (obj) => {
-      selectedObject = obj;
-      displayObjectDetails(obj);
+    onMousePress(() => {
+      var u = false;
+      for (const o of get("area").reverse()) {
+        if (o.isHovering()) {
+          console.log(o);
+          if (o.is("adjustment_arrow")) {
+            console.log("arrow clicked!");
+            break;
+          }
+          u = true;
+          selectedObject = o;
+          displayObjectDetails(o);
+          showAdjustmentArrows(o);
+          break;
+        }
+      }
+      if (!u)
+        selectedObject = null;
+    });
+    onMouseDown(() => {
     });
     plug(GridClass);
     debug.inspect = true;
     onDraw(() => {
       if (!debug.inspect)
         return;
+      console.log(k.width() + ", " + k.height() + " -> " + center());
     });
   }
   __name(editorScene, "editorScene");
+  function showAdjustmentArrows(obj) {
+    if (obj.children.length > 0)
+      return;
+    obj.add([
+      pos(),
+      anchor("right"),
+      rect(16, 6),
+      area(),
+      color(RED),
+      opacity(0.25),
+      "adjustment_arrow"
+    ]);
+  }
+  __name(showAdjustmentArrows, "showAdjustmentArrows");
   function displayObjectDetails(obj) {
     for (const comp in obj.inspect()) {
       var objComp = obj.c(comp);
@@ -3808,13 +3843,14 @@ vec4 frag(vec2 pos, vec2 uv, vec4 color, sampler2D tex) {
   __name(displayObjectDetails, "displayObjectDetails");
 
   // code/main.js
-  Oo({
-    width: 1280,
-    height: 720,
-    background: [128, 128, 128]
+  var k2 = Oo({
+    width: 640,
+    height: 480,
+    background: [119, 67, 96],
+    canvas: document.getElementById("kCan")
   });
   loadSprite("bean", "sprites/bean.png");
   scene("editor", editorScene);
-  go("editor");
+  go("editor", k2);
 })();
 //# sourceMappingURL=game.js.map
